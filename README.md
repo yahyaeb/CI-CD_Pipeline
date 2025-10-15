@@ -12,3 +12,10 @@ jobs:
 
             - name: checkout code
             - uses: actions/checkout@v2 
+
+Github Actions looks for workflows inside the following repo:
+    .github/workflows
+
+smoke test: does the app run without crashing? 
+
+source: https://www.youtube.com/watch?v=mFFXuXjVgkU 

@@ -1,0 +1,25 @@
+name: "Docker Checker"
+description: "Check if the docker image is running properly"
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check_docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker build -t my-nginx .
+
+      - name: Run Container and Test
+        run: |
+          docker run -d -p 8080:80 --name web my-nginx
+          sleep 5
+          curl -f http://localhost:8000
+          docker rm -f web
+
+
