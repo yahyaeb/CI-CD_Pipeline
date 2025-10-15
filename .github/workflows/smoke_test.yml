@@ -23,12 +23,14 @@ jobs:
         
       - name: Validate data inside the Container
         run: |
-          response=$(curl -s http://localhost:8080)
-          if echo "$response" | grep -q "DevOps Engineer" then
+          if echo "$response" | grep -qi "Aspiring DevOps Engineer"; then
             echo "Content validation passed"
           else
             echo "Expected content not found"
             exit 1
           fi
 
+      - name: cleanup
+        if: always()
+        run: docker -rm -f web || true
 
