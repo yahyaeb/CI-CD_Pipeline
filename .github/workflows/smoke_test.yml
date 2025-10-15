@@ -23,12 +23,9 @@ jobs:
         
       - name: Validate data inside the Container
         run: |
-          if echo "$response" | grep -qi "Deployed on AWS"; then
-            echo "Content validation passed"
-          else
-            echo "Expected content not found"
-            exit 1
-          fi
+          sudo apt-get update && sudo apt-get install -y html2text
+          text=$(curl -fsS http://localhost:8080 | html2text | tr -d '\n')
+          echo "$text" | grep -qi "Yahia Elboukili · Built & Deployed on AWS"
 
       - name: cleanup
         if: always()
