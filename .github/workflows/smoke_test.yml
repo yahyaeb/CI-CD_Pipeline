@@ -24,12 +24,12 @@ jobs:
         
       - name: Validate data inside the Container
         run: |
-        response=$(curl -s http://localhost:8080)
-        if echo "$response" | grep -q "Dynamic Web App – portfolio/dashboard with DevOps tools integration"; then
-          echo "Content validation passed"
-        else
-          echo "Expected content not found"
-          exit 1
-        fi
+          response=$(curl -s http://localhost:8080)
+          if echo "$response" | grep -q "Dynamic Web App – portfolio/dashboard with DevOps tools integration"; then
+            echo "Content validation passed"
+          else
+            echo "Expected content not found"
+            exit 1
+          fi
 
 
