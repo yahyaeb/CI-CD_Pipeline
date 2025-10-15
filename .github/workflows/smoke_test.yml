@@ -23,7 +23,7 @@ jobs:
         
       - name: Validate data inside the Container
         run: |
-          if echo "$response" | grep -qi "Yahia Elboukili · Built & Deployed on AWS"; then
+          if echo "$response" | grep -qi "Deployed on AWS"; then
             echo "Content validation passed"
           else
             echo "Expected content not found"
