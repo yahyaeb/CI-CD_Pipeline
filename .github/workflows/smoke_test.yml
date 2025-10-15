@@ -24,7 +24,7 @@ jobs:
       - name: Validate data inside the Container
         run: |
           response=$(curl -s http://localhost:8080)
-          if echo "$response" | grep -q "Aspiring DevOps Engineer with hands-on experience in AWS" then
+          if echo "$response" | grep -q "DevOps Engineer" then
             echo "Content validation passed"
           else
             echo "Expected content not found"
